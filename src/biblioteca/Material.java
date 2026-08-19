@@ -5,7 +5,7 @@ public abstract class Material implements Catalogable {
     private final String codigo;
     private final String titulo;
     private final int anio;
-    private final boolean disponible;
+    private boolean disponible;
 
     public Material (String codigo, String titulo, int anio, boolean disponible) {
         this.codigo = codigo;
@@ -31,10 +31,14 @@ public abstract class Material implements Catalogable {
         return this.disponible;
     }
 
-    public abstract String getTipo();
+    public void setDisponible (boolean disponible) {
+        this.disponible = disponible;
+    }
 
-    public void mostrarInformacion(){
+    public abstract String getTipo ();
+
+    public void mostrarInformacion () {
         String estado = disponible ? "disponible" : "prestado";
-        System.out.println("[" + getTipo() + "] " + titulo + " (" + anio + ") — " + estado);
+        System.out.println ("[" + getTipo () + "] " + titulo + " (" + anio + ") — " + estado);
     }
 }
